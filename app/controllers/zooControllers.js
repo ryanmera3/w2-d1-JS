@@ -40,14 +40,12 @@ function _draw() {
 let _animalEnclosure = {
   Aardvark: new Aardvark('Ardy', 50, 'Green'),
   Bear: new Bear('Bob', 500, 'Brown'),
-  Cheetah: new Cheetah('Chester', 120, 'Blue'),
   Duck: new Duck('Daffy', 10, 'Brown'),
   Eagle: new Eagle('Eddy', 10, 'Green'),
   Fox: new Fox('Freddy', 10, 'Brown'),
   Gopher: new Gopher('George', 10, 'Brown'),
   Hyena: new Hyena('Henry', 30, 'Blue'),
   Iguana: new Iguana('Iggy', 7, 'Brown'),
-  Jaguar: new Jaguar('John', 100, 'Green'),
   Kangaroo: new Kangaroo('Kenny', 100, 'Brown'),
   Lemur: new Lemur('Larry', 15, 'Brown'),
   Macaw: new Macaw('Mike', 2, 'Green'),
@@ -66,12 +64,30 @@ let _animalEnclosure = {
   Zebra: new Zebra('Zach', 800, 'Brown')
 }
 
+let _catsEnclosure = {
+  Cheetah: new Cheetah('Chester', 120, 'Blue'),
+  Jaguar: new Jaguar('John', 100, 'Green'),
+
+}
+
+function _drawCats() {
+  let template = ''
+  for (let key in _catsEnclosure) {
+    let cat = _catsEnclosure[key]
+    template += `<li>${cat.name} the ${[key]} - ${cat.weight} lbs - ${cat.name} has ${cat.eyeColor} eyes</li>`
+    console.log(cat)
+  }
+
+  document.getElementById('cats').innerHTML = template
+
+}
+
 export class ZooController {
   constructor() {
     _draw()
+    _drawCats()
   }
 }
-_draw()
 
 
 
